@@ -13,7 +13,7 @@ export default function Hero({ onNavigate }) {
 
       {/* Centered content */}
       <div style={styles.content}>
-        <p style={styles.eyebrow} className="animate-fade-in">AK AUREYA · MUMBAI</p>
+        <p style={styles.eyebrow} className="animate-fade-in">AUREYA · MUMBAI</p>
         <h1 style={styles.headline} className="animate-fade-up">
           AUREYA
         </h1>
