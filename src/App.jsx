@@ -37,7 +37,7 @@ function FeatureSection({ onNavigate }) {
     <section style={featureStyles.section}>
       {/* Left: image */}
       <div style={featureStyles.imagePanel}>
-        <img src="/images/solid perfumes.png" alt="Aureya Solid Perfumes" style={featureStyles.image} />
+        <img src="https://4yky8m622npc1u4j.public.blob.vercel-storage.com/solid.png" alt="Aureya Solid Perfumes" style={featureStyles.image} />
         <div style={featureStyles.imageCaption}>
           <span>Solid Perfume Collection</span>
         </div>
