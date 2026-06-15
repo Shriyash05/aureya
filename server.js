@@ -22,15 +22,13 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || (isProduction ? '' : 'aurey
 const DB_PATH = path.join(__dirname, 'database.json');
 const LOCAL_UPLOAD_DIR = path.join(__dirname, 'public', 'uploads');
 const DATABASE_URL = process.env.DATABASE_URL || process.env.POSTGRES_URL;
-console.log("DATABASE_URL =", process.env.DATABASE_URL);
-console.log("POSTGRES_URL =", process.env.POSTGRES_URL);
 const { Pool } = pg;
 const pgPool = DATABASE_URL
   ? new Pool({
       connectionString: DATABASE_URL,
-      ssl: /localhost|127\.0\.0\.1/.test(DATABASE_URL) || process.env.POSTGRES_SSL === 'false'
-        ? false
-        : { rejectUnauthorized: false },
+      ssl: {
+        rejectUnauthorized: false,
+      },
     })
   : null;
 let postgresReady = false;
