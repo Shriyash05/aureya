@@ -10,9 +10,19 @@
       "image": "/images/cosmic.jpeg",
       "tag": "Fresh",
       "notes": {
-        "top": ["Apple", "Plum", "Italian Lemon"],
-        "heart": ["Orange Blossom", "Jasmine"],
-        "base": ["Musk", "Amber"]
+        "top": [
+          "Apple",
+          "Plum",
+          "Italian Lemon"
+        ],
+        "heart": [
+          "Orange Blossom",
+          "Jasmine"
+        ],
+        "base": [
+          "Musk",
+          "Amber"
+        ]
       },
       "concentration": "Extrait de Parfum"
     },
@@ -26,9 +36,19 @@
       "image": "/images/flawless.jpeg",
       "tag": "Fresh",
       "notes": {
-        "top": ["Oceanic Notes", "Grapefruit", "Mandarin"],
-        "heart": ["Jasmine", "Bay Leaf"],
-        "base": ["Patchouli", "Oakmoss"]
+        "top": [
+          "Oceanic Notes",
+          "Grapefruit",
+          "Mandarin"
+        ],
+        "heart": [
+          "Jasmine",
+          "Bay Leaf"
+        ],
+        "base": [
+          "Patchouli",
+          "Oakmoss"
+        ]
       },
       "concentration": "Extrait de Parfum"
     },
@@ -42,9 +62,21 @@
       "image": "/images/forbidden orchid.jpeg",
       "tag": "Floral",
       "notes": {
-        "top": ["Pear", "Pink Pepper", "Almond"],
-        "heart": ["Orchid", "Jasmine", "Coffee"],
-        "base": ["Vanilla", "Cedarwood", "Patchouli"]
+        "top": [
+          "Pear",
+          "Pink Pepper",
+          "Almond"
+        ],
+        "heart": [
+          "Orchid",
+          "Jasmine",
+          "Coffee"
+        ],
+        "base": [
+          "Vanilla",
+          "Cedarwood",
+          "Patchouli"
+        ]
       },
       "concentration": "Extrait de Parfum"
     },
@@ -58,9 +90,18 @@
       "image": "/images/mi amor.jpeg",
       "tag": "Sweet",
       "notes": {
-        "top": ["Sour Cherry", "Raspberry"],
-        "heart": ["Jasmine", "Vanilla"],
-        "base": ["Musk", "Amber"]
+        "top": [
+          "Sour Cherry",
+          "Raspberry"
+        ],
+        "heart": [
+          "Jasmine",
+          "Vanilla"
+        ],
+        "base": [
+          "Musk",
+          "Amber"
+        ]
       },
       "concentration": "Extrait de Parfum"
     },
@@ -74,9 +115,18 @@
       "image": "/images/heaven garden.jpeg",
       "tag": "Woody",
       "notes": {
-        "top": ["Oceanic Notes", "Mint"],
-        "heart": ["Sandalwood", "Coconut", "Fig"],
-        "base": ["Tonka Beans"]
+        "top": [
+          "Oceanic Notes",
+          "Mint"
+        ],
+        "heart": [
+          "Sandalwood",
+          "Coconut",
+          "Fig"
+        ],
+        "base": [
+          "Tonka Beans"
+        ]
       },
       "concentration": "Extrait de Parfum"
     },
@@ -90,9 +140,19 @@
       "image": "/images/vanillian dream.jpeg",
       "tag": "Sweet",
       "notes": {
-        "top": ["Toasted Coconut", "Caramel"],
-        "heart": ["Madagascar Vanilla", "Orchid"],
-        "base": ["Sandalwood", "Amber", "White Musk"]
+        "top": [
+          "Toasted Coconut",
+          "Caramel"
+        ],
+        "heart": [
+          "Madagascar Vanilla",
+          "Orchid"
+        ],
+        "base": [
+          "Sandalwood",
+          "Amber",
+          "White Musk"
+        ]
       },
       "concentration": "Solid Balm"
     },
@@ -106,9 +166,18 @@
       "image": "/images/solid perfumes.png",
       "tag": "Woody",
       "notes": {
-        "top": ["Bergamot", "Cardamom"],
-        "heart": ["Sandalwood", "Cedarwood"],
-        "base": ["Amber", "Vanilla"]
+        "top": [
+          "Bergamot",
+          "Cardamom"
+        ],
+        "heart": [
+          "Sandalwood",
+          "Cedarwood"
+        ],
+        "base": [
+          "Amber",
+          "Vanilla"
+        ]
       },
       "concentration": "Solid Balm"
     },
@@ -122,9 +191,20 @@
       "image": "/images/solid perfume guide.png",
       "tag": "Fresh",
       "notes": {
-        "top": ["Assorted Berries", "Citrus"],
-        "heart": ["Jasmine", "Rose", "Coconut"],
-        "base": ["Musk", "Amber", "Sandalwood"]
+        "top": [
+          "Assorted Berries",
+          "Citrus"
+        ],
+        "heart": [
+          "Jasmine",
+          "Rose",
+          "Coconut"
+        ],
+        "base": [
+          "Musk",
+          "Amber",
+          "Sandalwood"
+        ]
       },
       "concentration": "Solid Balm"
     }

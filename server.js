@@ -211,7 +211,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-app.post('/api/admin/login', (req, res) => {
+app.post('/admin/login', (req, res) => {
   if (!requireServerSecret(res)) return;
   if (!ADMIN_PASSWORD) {
     return res.status(500).json({ error: 'ADMIN_PASSWORD must be configured before using admin login.' });
