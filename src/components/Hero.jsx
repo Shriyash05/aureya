@@ -6,7 +6,7 @@ export default function Hero({ onNavigate }) {
       {/* Full-bleed background image using the solid perfumes image */}
       <div style={styles.bgOverlay} />
       <img
-        src="https://4yky8m622npc1u4j.public.blob.vercel-storage.com/hero.png"
+        src="https://4yky8m622npc1u4j.public.blob.vercel-storage.com/hero1.png"
         alt="Aureya Fragrance"
         style={styles.bgImage}
       />
