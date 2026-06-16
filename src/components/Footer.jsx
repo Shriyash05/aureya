@@ -4,6 +4,7 @@ import { Camera, Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
 export default function Footer({ onNavigate, onSubscribe, onOpenLogin, isAdmin }) {
   const [email, setEmail] = useState('');
   const [success, setSuccess] = useState(false);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,13 +22,13 @@ export default function Footer({ onNavigate, onSubscribe, onOpenLogin, isAdmin }
 
       {/* ── Newsletter strip ── */}
       <div style={styles.newsletterStrip}>
-        <div className="container" style={styles.newsletterInner}>
+        <div className="container newsletter-row" style={styles.newsletterInner}>
           <div style={styles.nlLeft}>
             <p style={styles.nlEyebrow}>Fragrance Journal</p>
             <h3 style={styles.nlHeading}>Stay in the world of Aureya</h3>
           </div>
           <form onSubmit={handleSubmit} style={styles.nlForm}>
-            <div style={styles.nlInputRow}>
+            <div className="footer-input-row" style={styles.nlInputRow}>
               <input
                 type="email"
                 placeholder="Your email address"
@@ -46,7 +47,7 @@ export default function Footer({ onNavigate, onSubscribe, onOpenLogin, isAdmin }
 
       {/* ── Main footer body ── */}
       <div style={styles.body}>
-        <div className="container" style={styles.grid}>
+        <div className="container footer-grid" style={styles.grid}>
 
           {/* Brand col */}
           <div style={styles.brandCol}>
@@ -113,7 +114,7 @@ export default function Footer({ onNavigate, onSubscribe, onOpenLogin, isAdmin }
 
       {/* ── Bottom bar ── */}
       <div style={styles.bottomBar}>
-        <div className="container" style={styles.bottomInner}>
+        <div className="container footer-bottom-inner" style={styles.bottomInner}>
           <p style={styles.copyright}>© {year} Aureya by Aayush. All rights reserved.</p>
           <p style={styles.bottomTag}>Let your scent be your signature.</p>
         </div>
@@ -133,12 +134,11 @@ const styles = {
     padding: '5rem 0',
   },
   newsletterInner: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: '4rem',
-    flexWrap: 'wrap',
-  },
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  gap: '3rem',
+},
   nlLeft: { flex: 1, minWidth: '24rem' },
   nlEyebrow: {
     fontFamily: "'Montserrat', sans-serif",
@@ -163,7 +163,10 @@ const styles = {
     margin: 0,
   },
   nlForm: { flex: 1, minWidth: '28rem', maxWidth: '48rem' },
-  nlInputRow: { display: 'flex', gap: '0' },
+  nlInputRow: {
+  display: 'flex',
+  gap: '1rem',
+},
   nlInput: {
     flex: 1,
     height: '5rem',
@@ -196,7 +199,10 @@ const styles = {
     gridTemplateColumns: '2fr 1fr 1fr 1fr',
     gap: '5rem',
   },
-  brandCol: {},
+  brandCol: {
+  width: '100%',
+  maxWidth: '100%',
+},
   brandName: {
     fontFamily: "'Cormorant Garamond', serif",
     fontSize: '3.2rem',
@@ -275,13 +281,12 @@ const styles = {
     padding: '2.4rem 0',
     backgroundColor: '#080808',
   },
-  bottomInner: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    gap: '1rem',
-  },
+ bottomInner: {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  gap: '1rem',
+},
   copyright: {
     fontSize: '1.1rem',
     color: 'var(--muted)',

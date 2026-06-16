@@ -52,10 +52,8 @@ export default function Loader({ onComplete }) {
 
       // Create burst
       for (let i = 0; i < 150; i++) {
-        setTimeout(() => {
-          particles.current.push(new Particle(originX, originY));
-        }, Math.random() * 200);
-      }
+  particles.current.push(new Particle(originX, originY));
+}
     }
 
     // Complete loading after animation
@@ -92,13 +90,11 @@ export default function Loader({ onComplete }) {
         particles.current.push(new Particle(canvas.width / 2 + (Math.random() - 0.5) * 60, canvas.height * 0.42));
       }
 
-      particles.current.forEach((particle, idx) => {
-        particle.update();
-        particle.draw(ctx);
-        if (particle.alpha <= 0) {
-          particles.current.splice(idx, 1);
-        }
-      });
+      particles.current = particles.current.filter((particle) => {
+  particle.update();
+  particle.draw(ctx);
+  return particle.alpha > 0;
+});
 
       animationFrameId.current = requestAnimationFrame(animate);
     };
@@ -169,9 +165,9 @@ export default function Loader({ onComplete }) {
               {/* Gradients */}
               <defs>
                 <linearGradient id="liquidGrad" x1="90" y1="80" x2="90" y2="220" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="rgba(197, 168, 128, 0.3)" />
-                  <stop offset="60%" stopColor="rgba(197, 168, 128, 0.6)" />
-                  <stop offset="100%" stopColor="rgba(150, 120, 80, 0.8)" />
+                  <stop offset="0%" stopColor="#c5a880" stopOpacity="0.3" />
+<stop offset="60%" stopColor="#c5a880" stopOpacity="0.6" />
+<stop offset="100%" stopColor="#967850" stopOpacity="0.8" />
                 </linearGradient>
               </defs>
             </svg>

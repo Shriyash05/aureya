@@ -54,20 +54,13 @@ export default function Navbar({ onNavigate, activeTab, onOpenLogin, isAdmin, on
           {/* Mobile burger */}
           {/* Mobile burger */}
 <button
-  className="show-mobile"
+  className="mobile-burger"
   style={styles.burgerBtn}
   onClick={() => setMobileOpen(!mobileOpen)}
-  aria-label="Toggle menu"
->
-  {mobileOpen ? (
-    <X size={22} color="var(--white)" />
-  ) : (
-    <Menu size={22} color="var(--white)" />
-  )}
-</button>
+  aria-label="Toggle menu"/>
 
           {/* Left links */}
-          <div style={styles.leftLinks} className="hide-mobile">
+          <div style={styles.leftLinks} className="desktop-nav hide-mobile">
             {navItems.slice(0, 2).map(({ label, tab }) => (
               <button
                 key={tab}
@@ -80,13 +73,13 @@ export default function Navbar({ onNavigate, activeTab, onOpenLogin, isAdmin, on
           </div>
 
           {/* Brand */}
-          <div style={styles.brand} onClick={() => handleNavClick('home')}>
+          <div className="navbar-brand" style={styles.brand} onClick={() => handleNavClick('home')}>
   <div>AUREYA</div>
   <div style={styles.brandSub}>by Aayush</div>
 </div>
 
           {/* Right links */}
-          <div style={styles.rightLinks} className="hide-mobile">
+          <div style={styles.rightLinks} className="desktop-nav hide-mobile">
             {navItems.slice(2).map(({ label, tab }) => (
               <button
                 key={tab}
@@ -116,7 +109,7 @@ export default function Navbar({ onNavigate, activeTab, onOpenLogin, isAdmin, on
 
         {/* Mobile dropdown */}
         {mobileOpen && (
-          <div style={styles.mobileMenu}>
+          <div className="mobile-menu" style={styles.mobileMenu}>
             {navItems.map(({ label, tab }) => (
               <button
                 key={tab}
@@ -239,8 +232,7 @@ const styles = {
   border: 'none',
   cursor: 'pointer',
   padding: '0.6rem',
-  alignItems: 'center',
-  justifyContent: 'center',
+  display: 'none',
 },
   mobileMenu: {
     position: 'fixed',

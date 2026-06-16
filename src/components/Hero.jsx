@@ -2,21 +2,18 @@
 
 export default function Hero({ onNavigate }) {
   return (
-    <div style={styles.hero}>
+    <div className="hero-section" style={styles.hero}>
       {/* Full-bleed background image using the solid perfumes image */}
       <div style={styles.bgOverlay} />
       <img
   src="https://4yky8m622npc1u4j.public.blob.vercel-storage.com/hero1.png"
   alt="Aureya Fragrance"
-  style={{
-    ...styles.bgImage,
-    objectFit: window.innerWidth <= 768 ? 'contain' : 'cover',
-    objectPosition: 'center center',
-  }}
+  className="hero-image"
+  style={styles.bgImage}
 />
 
       {/* Centered content */}
-      <div style={styles.content}>
+      <div className="hero-content" style={styles.content}>
         <p style={styles.eyebrow} className="animate-fade-in">AUREYA · MUMBAI</p>
         <h1 style={styles.headline} className="animate-fade-up">
   AUREYA
@@ -28,7 +25,7 @@ export default function Hero({ onNavigate }) {
         <p style={styles.sub} className="animate-fade-up">
           Wear Your Essence.
         </p>
-        <p style={styles.desc}>
+        <p className="hero-desc" style={styles.desc}>
           A celebration of scent and sophistication — crafted for those who seek
           subtle luxury in a modern, exotic form.
         </p>
@@ -63,15 +60,15 @@ const styles = {
   backgroundColor: '#090909',
 },
   bgImage: {
-    position: 'absolute',
-    inset: 0,
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    objectPosition: 'center',
-    opacity: 0.45,
-    filter: 'saturate(0.6)',
-  },
+  position: 'absolute',
+  inset: 0,
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  objectPosition: 'center',
+  opacity: 0.45,
+  filter: 'saturate(0.6)',
+},
   bgOverlay: {
     position: 'absolute',
     inset: 0,
@@ -106,7 +103,7 @@ byline: {
   },
   headline: {
     fontFamily: "'Cormorant Garamond', serif",
-    fontSize: 'clamp(7rem, 16vw, 16rem)',
+    fontSize: 'clamp(7rem,16vw,16rem)',
     fontWeight: '300',
     letterSpacing: '0.18em',
     color: 'var(--white)',

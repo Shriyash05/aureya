@@ -34,7 +34,7 @@ function MarqueeBand() {
 /* ─── Feature Split Section ───────────────────────────── */
 function FeatureSection({ onNavigate }) {
   return (
-    <section style={featureStyles.section}>
+    <section className="feature-section" style={featureStyles.section}>
       {/* Left: image */}
       <div style={featureStyles.imagePanel}>
         <img src="https://4yky8m622npc1u4j.public.blob.vercel-storage.com/solid.png" alt="Aureya Solid Perfumes" style={featureStyles.image} />
@@ -75,11 +75,11 @@ function FeatureSection({ onNavigate }) {
 
 const featureStyles = {
   section: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    minHeight: '85vh',
-    backgroundColor: '#080808',
-  },
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+minHeight: '85vh',
+  backgroundColor: '#080808',
+},
   imagePanel: {
     position: 'relative',
     overflow: 'hidden',
@@ -87,10 +87,10 @@ const featureStyles = {
   },
   image: {
     width: '100%',
-    height: '100%',
-    objectFit: 'contain',
+  height: '100%',
+  objectFit: 'contain',
+  padding: '4rem',
     objectPosition: 'center',
-    padding: '4rem',
     display: 'block',
   },
   imageCaption: {
@@ -277,7 +277,7 @@ function TestimonialsSection() {
       <div className="container">
         <p style={testStyles.eyebrow}>What Our Customers Say</p>
         <h2 style={testStyles.heading}>Loved by Fragrance Enthusiasts</h2>
-        <div style={testStyles.grid}>
+        <div className="testimonial-grid" style={testStyles.grid}>
           {reviews.map((r, i) => (
             <div key={i} style={testStyles.card}>
               <div style={testStyles.stars}>{'★★★★★'}</div>
@@ -320,7 +320,7 @@ const testStyles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(3,1fr)',
     gap: '3rem',
   },
   card: {
@@ -462,7 +462,7 @@ function CollectionSection({ products, onSelect, onNavigate }) {
             <p>No products available yet. Check back soon.</p>
           </div>
         ) : (
-          <div style={collStyles.grid}>
+          <div className="collection-grid" style={collStyles.grid}>
             {filtered.slice(0, 6).map(product => (
               <ProductCard key={product.id} product={product} onSelect={onSelect} />
             ))}
@@ -481,10 +481,10 @@ function CollectionSection({ products, onSelect, onNavigate }) {
 
 const collStyles = {
   section: {
-    backgroundColor: '#050505',
-    padding: '10rem 0',
-    borderTop: '1px solid var(--border)',
-  },
+  backgroundColor: '#050505',
+  padding: '10rem 0',
+  borderTop: '1px solid var(--border)',
+},
   header: { textAlign: 'center', marginBottom: '6rem' },
   eyebrow: {
     fontFamily: "'Montserrat', sans-serif",
@@ -537,7 +537,7 @@ const collStyles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(3,1fr)',
     gap: '2.4rem',
   },
   empty: {
@@ -601,7 +601,13 @@ function ShopPage({ products, onSelect }) {
         {filtered.length === 0 ? (
           <div style={collStyles.empty}><p>No products match your filters.</p></div>
         ) : (
-          <div style={{ ...collStyles.grid, gridTemplateColumns: 'repeat(auto-fill, minmax(28rem, 1fr))' }}>
+          <div
+  className="shop-grid"
+  style={{
+    ...collStyles.grid,
+    gridTemplateColumns: 'repeat(auto-fill, minmax(28rem, 1fr))',
+  }}
+>
             {filtered.map(p => <ProductCard key={p.id} product={p} onSelect={onSelect} />)}
           </div>
         )}
@@ -652,7 +658,7 @@ function AboutPage() {
         </div>
       </div>
       {/* Feature image + text */}
-      <div style={aboutPageStyles.splitSection}>
+      <div className="about-split" style={aboutPageStyles.splitSection}>
         <div style={aboutPageStyles.imgCol}>
           <img src="/images/solid perfumes.png" alt="Aureya Products" style={aboutPageStyles.img} />
         </div>
@@ -773,7 +779,7 @@ function ContactPage({ onSubmit, submitted, name, setName, email, setEmail, mess
           <p style={collStyles.sub}>Have a question or want to place an order? Reach out directly — we're always happy to help.</p>
         </div>
 
-        <div style={contactPageStyles.grid}>
+        <div className="contact-grid" style={contactPageStyles.grid}>
           {/* Info */}
           <div style={contactPageStyles.infoCol}>
             <h3 style={contactPageStyles.infoHeading}>Aureya Concierge</h3>
@@ -839,14 +845,14 @@ function ContactPage({ onSubmit, submitted, name, setName, email, setEmail, mess
 const contactPageStyles = {
   grid: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1.3fr',
+    gridTemplateColumns: '1fr 1fr',
     gap: '5rem',
     alignItems: 'start',
   },
   infoCol: {
     backgroundColor: '#0e0e0e',
     border: '1px solid var(--border)',
-    padding: '5rem',
+    padding: '5rem'
   },
   infoHeading: {
     fontFamily: "'Cormorant Garamond', serif",
