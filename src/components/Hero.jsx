@@ -6,10 +6,14 @@ export default function Hero({ onNavigate }) {
       {/* Full-bleed background image using the solid perfumes image */}
       <div style={styles.bgOverlay} />
       <img
-        src="https://4yky8m622npc1u4j.public.blob.vercel-storage.com/hero1.png"
-        alt="Aureya Fragrance"
-        style={styles.bgImage}
-      />
+  src="https://4yky8m622npc1u4j.public.blob.vercel-storage.com/hero1.png"
+  alt="Aureya Fragrance"
+  style={{
+    ...styles.bgImage,
+    objectFit: window.innerWidth <= 768 ? 'contain' : 'cover',
+    objectPosition: 'center center',
+  }}
+/>
 
       {/* Centered content */}
       <div style={styles.content}>
@@ -32,7 +36,7 @@ export default function Hero({ onNavigate }) {
           <button className="btn-primary" onClick={() => onNavigate('shop')}>
             Explore Collection
           </button>
-          <button className="btn-outline" onClick={() => onNavigate('about')} style={{ marginLeft: '1.6rem' }}>
+          <button className="btn-outline" onClick={() => onNavigate('about')}>
             Our Story
           </button>
         </div>
@@ -83,12 +87,13 @@ byline: {
   margin: '-1rem 0 2rem 0',
 },
   content: {
-    position: 'relative',
-    zIndex: 2,
-    textAlign: 'center',
-    padding: '0 2rem',
-    maxWidth: '90rem',
-  },
+  position: 'relative',
+  zIndex: 2,
+  textAlign: 'center',
+  padding: '0 2rem',
+  maxWidth: '90rem',
+  marginTop: '8rem',
+},
   eyebrow: {
     fontFamily: "'Montserrat', sans-serif",
     fontSize: '1.05rem',

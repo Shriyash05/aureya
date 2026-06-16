@@ -225,3 +225,21 @@ label { font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; co
 @media (min-width: 769px) {
   .show-mobile-only { display: none !important; }
 }
+@media (max-width: 768px) {
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: flex !important;
+  }
+
+}

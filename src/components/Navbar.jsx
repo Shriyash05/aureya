@@ -52,9 +52,19 @@ export default function Navbar({ onNavigate, activeTab, onOpenLogin, isAdmin, on
         <div className="container" style={styles.navContainer}>
 
           {/* Mobile burger */}
-          <button style={styles.burgerBtn} onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
-            {mobileOpen ? <X size={22} color="var(--white)" /> : <Menu size={22} color="var(--white)" />}
-          </button>
+          {/* Mobile burger */}
+<button
+  className="show-mobile"
+  style={styles.burgerBtn}
+  onClick={() => setMobileOpen(!mobileOpen)}
+  aria-label="Toggle menu"
+>
+  {mobileOpen ? (
+    <X size={22} color="var(--white)" />
+  ) : (
+    <Menu size={22} color="var(--white)" />
+  )}
+</button>
 
           {/* Left links */}
           <div style={styles.leftLinks} className="hide-mobile">
@@ -140,17 +150,19 @@ export default function Navbar({ onNavigate, activeTab, onOpenLogin, isAdmin, on
 const styles = {
   navbar: {
     position: 'fixed',
-    top: '40px',
+    top: '3.8rem',
     left: 0,
     width: '100%',
     zIndex: 999,
     transition: 'all 0.4s ease',
   },
   navContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  position: 'relative',
+  minHeight: '60px',
+},
   leftLinks: {
     display: 'flex',
     gap: '3.5rem',
@@ -166,9 +178,9 @@ const styles = {
   },
   brand: {
   fontFamily: "'Cormorant Garamond', serif",
-  fontSize: '2.4rem',
+  fontSize: '2rem',
+  letterSpacing: '0.15em',
   fontWeight: '600',
-  letterSpacing: '0.35em',
   color: 'var(--white)',
   cursor: 'pointer',
   userSelect: 'none',
@@ -181,7 +193,7 @@ const styles = {
   textAlign: 'center',
 },
   brandSub: {
-  fontSize: '0.8rem',
+  fontSize: '0.55rem',
   color: 'var(--gold)',
   letterSpacing: '0.35em',
   marginTop: '-8px',
@@ -222,18 +234,19 @@ const styles = {
     textTransform: 'uppercase',
     transition: 'all 0.2s ease',
   },
-  burgerBtn: {
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
-    padding: '0.6rem',
-    display: 'none',
-  },
+ burgerBtn: {
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  padding: '0.6rem',
+  alignItems: 'center',
+  justifyContent: 'center',
+},
   mobileMenu: {
-    position: 'absolute',
-    top: '100%',
-    left: 0,
-    right: 0,
+    position: 'fixed',
+  top: '120px',
+  left: 0,
+  right: 0,
     backgroundColor: 'rgba(5,5,5,0.98)',
     backdropFilter: 'blur(16px)',
     borderBottom: '1px solid var(--border)',
