@@ -228,3 +228,16 @@
   }
 
 }
+@media (max-width:768px){
+
+  .collection-grid{
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:12px !important;
+  }
+
+  .shop-grid{
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:12px !important;
+  }
+
+}

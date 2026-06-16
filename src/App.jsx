@@ -462,7 +462,7 @@ function CollectionSection({ products, onSelect, onNavigate }) {
             <p>No products available yet. Check back soon.</p>
           </div>
         ) : (
-          <div className="collection-grid">
+          <div className="collection-grid" style={collStyles.grid}>
             {filtered.slice(0, 6).map(product => (
               <ProductCard key={product.id} product={product} onSelect={onSelect} />
             ))}
@@ -603,7 +603,10 @@ function ShopPage({ products, onSelect }) {
         ) : (
          <div
   className="shop-grid"
-  style={collStyles.grid}
+  style={{
+    ...collStyles.grid,
+    gridTemplateColumns: 'repeat(auto-fill,minmax(28rem,1fr))',
+  }}
 >
             {filtered.map(p => <ProductCard key={p.id} product={p} onSelect={onSelect} />)}
           </div>

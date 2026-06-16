@@ -339,14 +339,3 @@ label { font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; co
   }
 
 }
-@media (max-width:768px){
-
-  .shop-grid{
-    grid-template-columns:1fr !important;
-  }
-
-  select{
-    min-width:0 !important;
-  }
-
-}
