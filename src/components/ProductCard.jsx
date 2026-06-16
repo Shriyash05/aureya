@@ -96,13 +96,15 @@ export default function ProductCard({ product, onSelect }) {
 
 const styles = {
   card: {
-    backgroundColor: 'var(--off-black)',
-    border: '1px solid var(--border)',
-    cursor: 'pointer',
-    transition: 'border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease',
-    display: 'flex',
-    flexDirection: 'column',
-  },
+  backgroundColor: 'var(--off-black)',
+  border: '1px solid var(--border)',
+  cursor: 'pointer',
+  display: 'flex',
+  flexDirection: 'column',
+
+  width: '100%',
+  minWidth: 0,
+},
   cardHovered: {
     borderColor: 'var(--gold)',
     transform: 'translateY(-6px)',
