@@ -243,3 +243,25 @@ label { font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; co
   }
 
 }
+@media (max-width:768px){
+
+  .container{
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+
+  .footer-grid,
+  .newsletter-row,
+  .footer-input-row{
+    width:100%;
+  }
+
+  .footer-input-row input,
+  .footer-input-row button{
+    width:100%;
+  }
+
+  .mobile-burger{
+    display:flex !important;
+  }
+}

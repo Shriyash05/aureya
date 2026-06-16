@@ -57,7 +57,14 @@ export default function Navbar({ onNavigate, activeTab, onOpenLogin, isAdmin, on
   className="mobile-burger"
   style={styles.burgerBtn}
   onClick={() => setMobileOpen(!mobileOpen)}
-  aria-label="Toggle menu"/>
+  aria-label="Toggle menu"
+>
+  {mobileOpen ? (
+    <X size={22} color="white" />
+  ) : (
+    <Menu size={22} color="white" />
+  )}
+</button>
 
           {/* Left links */}
           <div style={styles.leftLinks} className="desktop-nav hide-mobile">
@@ -227,12 +234,14 @@ const styles = {
     textTransform: 'uppercase',
     transition: 'all 0.2s ease',
   },
- burgerBtn: {
+burgerBtn: {
   background: 'none',
   border: 'none',
   cursor: 'pointer',
   padding: '0.6rem',
-  display: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+  zIndex: 1001,
 },
   mobileMenu: {
     position: 'fixed',
