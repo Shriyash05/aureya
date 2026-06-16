@@ -3,13 +3,26 @@ import { X, MessageSquare, Info } from 'lucide-react';
 export default function ProductDetailModal({ product, onClose }) {
   if (!product) return null;
 
-  const { name, type, price, volume, image, description, notes, tag, concentration } = product;
+  const {
+  name,
+  type,
+  price,
+  volume,
+  image,
+  description,
+  notes,
+  tag,
+  concentration,
+  available = true,
+} = product;
 
   // WhatsApp Enquiry Link
   const whatsappNumber = "919619203048";
-  const whatsappMessage = encodeURIComponent(
-    `Hi AUREYA, I'd like to enquire about "${name}" (${volume}, priced at ₹${price.toLocaleString('en-IN')}). Please share ordering and payment details. Thank you!`
-  );
+  const formattedPrice = Number(price || 0).toLocaleString('en-IN');
+
+const whatsappMessage = encodeURIComponent(
+  `Hi AUREYA, I'd like to enquire about "${name}" (${volume}, priced at ₹${formattedPrice}). Please share ordering and payment details. Thank you!`
+);
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
@@ -57,7 +70,7 @@ export default function ProductDetailModal({ product, onClose }) {
 
             <h2 style={styles.title}>{name}</h2>
             <div style={styles.priceRow}>
-              <span style={styles.price}>₹{price.toLocaleString('en-IN')}</span>
+              <span style={styles.price}>₹{formattedPrice}</span>
               <span style={styles.volume}>{volume}</span>
             </div>
 
@@ -95,16 +108,21 @@ export default function ProductDetailModal({ product, onClose }) {
             )}
 
             {/* Action Section */}
-            <div style={styles.actionsContainer}>
-              <a 
-                href={whatsappUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={styles.whatsappBtn}
-              >
-                <MessageSquare size={16} style={{marginRight: '10px'}} /> Enquire on WhatsApp
-              </a>
-            </div>
+            {available ? (
+  <a
+    href={whatsappUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    style={styles.whatsappBtn}
+  >
+    <MessageSquare size={16} style={{marginRight: '10px'}} />
+    Enquire on WhatsApp
+  </a>
+) : (
+  <div style={styles.soldOutBtn}>
+    SOLD OUT
+  </div>
+)}
 
             {/* Sub-text from brochure */}
             <p style={styles.brochureNote}>
@@ -142,6 +160,17 @@ const styles = {
     position: 'relative',
     margin: 'auto',
   },
+  soldOutBtn: {
+  width: '100%',
+  height: '45px',
+  backgroundColor: '#2b2b2b',
+  color: '#e05c4a',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontWeight: '700',
+  letterSpacing: '0.15em',
+},
   closeBtn: {
     position: 'absolute',
     top: '20px',
@@ -157,25 +186,18 @@ const styles = {
     }
   },
   content: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1.2fr',
-    '@media (max-width: 768px)': {
-      gridTemplateColumns: '1fr',
-    }
+  display: 'flex',
+  flexWrap: 'wrap',
   },
   imageCol: {
     padding: '40px',
     display: 'flex',
+    flex: '1 1 350px',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#0d0e12',
     borderRight: '1px solid rgba(197, 168, 128, 0.08)',
-    '@media (max-width: 768px)': {
-      padding: '30px',
-      borderRight: 'none',
-      borderBottom: '1px solid rgba(197, 168, 128, 0.08)',
-    }
   },
   image: {
     width: '100%',
@@ -200,11 +222,9 @@ const styles = {
   detailsCol: {
     padding: '45px',
     display: 'flex',
+    flex: '1 1 450px',
     flexDirection: 'column',
     justifyContent: 'center',
-    '@media (max-width: 768px)': {
-      padding: '30px',
-    }
   },
   headerRow: {
     display: 'flex',

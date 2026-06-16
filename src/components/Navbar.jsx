@@ -71,8 +71,9 @@ export default function Navbar({ onNavigate, activeTab, onOpenLogin, isAdmin, on
 
           {/* Brand */}
           <div style={styles.brand} onClick={() => handleNavClick('home')}>
-            AUREYA
-          </div>
+  <div>AUREYA</div>
+  <div style={styles.brandSub}>by Aayush</div>
+</div>
 
           {/* Right links */}
           <div style={styles.rightLinks} className="hide-mobile">
@@ -139,7 +140,7 @@ export default function Navbar({ onNavigate, activeTab, onOpenLogin, isAdmin, on
 const styles = {
   navbar: {
     position: 'fixed',
-    top: '3.8rem',
+    top: '40px',
     left: 0,
     width: '100%',
     zIndex: 999,
@@ -164,15 +165,29 @@ const styles = {
     justifyContent: 'flex-end',
   },
   brand: {
-    fontFamily: "'Cormorant Garamond', serif",
-    fontSize: '2.4rem',
-    fontWeight: '600',
-    letterSpacing: '0.35em',
-    color: 'var(--white)',
-    cursor: 'pointer',
-    userSelect: 'none',
-    whiteSpace: 'nowrap',
-  },
+  fontFamily: "'Cormorant Garamond', serif",
+  fontSize: '2.4rem',
+  fontWeight: '600',
+  letterSpacing: '0.35em',
+  color: 'var(--white)',
+  cursor: 'pointer',
+  userSelect: 'none',
+  whiteSpace: 'nowrap',
+
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  textAlign: 'center',
+},
+  brandSub: {
+  fontSize: '0.8rem',
+  color: 'var(--gold)',
+  letterSpacing: '0.35em',
+  marginTop: '-8px',
+  textAlign: 'center',
+  width: '100%',
+},
   navLink: {
     fontFamily: "'Montserrat', sans-serif",
     fontSize: '1.05rem',
@@ -184,6 +199,7 @@ const styles = {
     padding: '0.4rem 0',
     transition: 'color 0.2s ease',
     position: 'relative',
+    cursor: 'pointer',
   },
   iconBtn: {
     background: 'none',

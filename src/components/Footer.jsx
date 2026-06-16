@@ -51,6 +51,7 @@ export default function Footer({ onNavigate, onSubscribe, onOpenLogin, isAdmin }
           {/* Brand col */}
           <div style={styles.brandCol}>
             <h2 style={styles.brandName}>AUREYA</h2>
+            <p style={styles.brandByline}>by Aayush</p>
             <p style={styles.brandTagline}>"Wear Your Essence."</p>
             <p style={styles.brandDesc}>
               Mumbai's celebration of scent and sophistication. Crafting subtle luxury through compact solid balms and concentrated sprays.
@@ -147,6 +148,12 @@ const styles = {
     color: 'var(--gold)',
     marginBottom: '0.8rem',
   },
+  brandByline: {
+  color: 'var(--gold)',
+  letterSpacing: '0.2em',
+  marginBottom: '1rem',
+  textTransform: 'uppercase',
+},
   nlHeading: {
     fontFamily: "'Cormorant Garamond', serif",
     fontSize: 'clamp(2rem, 3.5vw, 3.2rem)',

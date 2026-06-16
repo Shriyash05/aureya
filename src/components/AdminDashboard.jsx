@@ -13,7 +13,7 @@ export default function AdminDashboard({
   const [activeSubTab, setActiveSubTab] = useState('fragrances'); // 'fragrances' or 'inquiries'
   const [editingProduct, setEditingProduct] = useState(null); // null means not editing/adding
   const [isNew, setIsNew] = useState(false); // true if adding a new perfume
-
+  const [formAvailable, setFormAvailable] = useState(true);
   // Form State
   const [formName, setFormName] = useState('');
   const [formType, setFormType] = useState('spray');
@@ -43,6 +43,7 @@ export default function AdminDashboard({
     setFormBaseNotes('Cedarwood, Musk');
     setFormImage('/images/cosmic.jpeg'); // Default mock
     setUploadStatus('');
+    setFormAvailable(true);
   };
 
   const handleStartEdit = (product) => {
@@ -59,6 +60,7 @@ export default function AdminDashboard({
     setFormBaseNotes(product.notes?.base.join(', ') || '');
     setFormImage(product.image);
     setUploadStatus('');
+    setFormAvailable(product.available !== false);
   };
 
   const handleImageUpload = async (event) => {
@@ -95,6 +97,7 @@ export default function AdminDashboard({
       description: formDescription,
       tag: formTag,
       image: formImage,
+      available: formAvailable,
       notes: {
         top: formTopNotes.split(',').map(n => n.trim()).filter(Boolean),
         heart: formHeartNotes.split(',').map(n => n.trim()).filter(Boolean),
@@ -250,6 +253,18 @@ export default function AdminDashboard({
                       required
                     />
                   </div>
+                  <div style={styles.inputGroup}>
+  <label>Availability</label>
+  <select
+    value={formAvailable ? 'available' : 'soldout'}
+    onChange={(e) =>
+      setFormAvailable(e.target.value === 'available')
+    }
+  >
+    <option value="available">Available</option>
+    <option value="soldout">Sold Out</option>
+  </select>
+</div>
                 </div>
 
                 {/* Column 2 */}
@@ -351,6 +366,7 @@ export default function AdminDashboard({
                     <th style={styles.th}>Volume</th>
                     <th style={styles.th}>Price</th>
                     <th style={styles.th}>Tag</th>
+                    <th style={styles.th}>Status</th>
                     <th style={styles.th}>Actions</th>
                   </tr>
                 </thead>
@@ -377,32 +393,52 @@ export default function AdminDashboard({
                         </span>
                       </td>
                       <td style={styles.td}>{p.volume}</td>
-                      <td style={{...styles.td, color: '#fcd116'}}>₹{parseInt(p.price).toLocaleString('en-IN')}</td>
+                      <td style={{ ...styles.td, color: '#fcd116' }}>
+  ₹{Number(p.price || 0).toLocaleString('en-IN')}
+</td>
                       <td style={styles.td}>
                         <span style={styles.tdTag}>{p.tag}</span>
                       </td>
                       <td style={styles.td}>
-                        <div style={styles.rowActions}>
-                          <button 
-                            style={styles.editBtn} 
-                            onClick={() => handleStartEdit(p)}
-                            title="Edit Scent"
-                          >
-                            <Edit size={14} />
-                          </button>
-                          <button 
-                            style={styles.deleteBtn} 
-                            onClick={() => {
-                              if (window.confirm(`Are you sure you want to delete ${p.name}?`)) {
-                                onDeleteProduct(p.id);
-                              }
-                            }}
-                            title="Delete Scent"
-                          >
-                            <Trash2 size={14} />
-                          </button>
-                        </div>
-                      </td>
+  <span
+    style={{
+      padding: '4px 10px',
+      borderRadius: '20px',
+      fontSize: '0.75rem',
+      fontWeight: '600',
+      color: p.available === false ? '#ff6b6b' : '#7bd88f',
+      border: `1px solid ${
+        p.available === false
+          ? 'rgba(255,107,107,.4)'
+          : 'rgba(123,216,143,.4)'
+      }`,
+    }}
+  >
+    {p.available === false ? 'Sold Out' : 'Available'}
+  </span>
+</td>
+
+<td style={styles.td}>
+  <div style={styles.rowActions}>
+    <button
+      style={styles.editBtn}
+      onClick={() => handleStartEdit(p)}
+    >
+      <Edit size={14} />
+    </button>
+
+    <button
+      style={styles.deleteBtn}
+      onClick={() => {
+        if (window.confirm(`Delete ${p.name}?`)) {
+          onDeleteProduct(p.id);
+        }
+      }}
+    >
+      <Trash2 size={14} />
+    </button>
+  </div>
+</td>
                     </tr>
                   ))}
                 </tbody>

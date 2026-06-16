@@ -15,13 +15,17 @@ export default function Hero({ onNavigate }) {
       <div style={styles.content}>
         <p style={styles.eyebrow} className="animate-fade-in">AUREYA · MUMBAI</p>
         <h1 style={styles.headline} className="animate-fade-up">
-          AUREYA
-        </h1>
+  AUREYA
+</h1>
+
+<p style={styles.byline}>
+  by Aayush
+</p>
         <p style={styles.sub} className="animate-fade-up">
           Wear Your Essence.
         </p>
         <p style={styles.desc}>
-          A celebration of scent and sophistication — crafted for those who seek<br />
+          A celebration of scent and sophistication — crafted for those who seek
           subtle luxury in a modern, exotic form.
         </p>
         <div style={styles.ctas}>
@@ -45,15 +49,15 @@ export default function Hero({ onNavigate }) {
 
 const styles = {
   hero: {
-    position: 'relative',
-    height: '100vh',
-    minHeight: '70rem',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    backgroundColor: '#090909',
-  },
+  position: 'relative',
+  minHeight: '100vh',
+  height: '100vh',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  overflow: 'hidden',
+  backgroundColor: '#090909',
+},
   bgImage: {
     position: 'absolute',
     inset: 0,
@@ -70,6 +74,14 @@ const styles = {
     background: 'linear-gradient(to bottom, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.55) 60%, rgba(5,5,5,1) 100%)',
     zIndex: 1,
   },
+byline: {
+  fontFamily: "'Cormorant Garamond', serif",
+  fontSize: 'clamp(1.2rem, 2vw, 1.8rem)',
+  color: 'var(--gold)',
+  letterSpacing: '0.35em',
+  textAlign: 'center',
+  margin: '-1rem 0 2rem 0',
+},
   content: {
     position: 'relative',
     zIndex: 2,

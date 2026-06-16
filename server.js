@@ -233,7 +233,10 @@ app.get('/api/products', async (req, res) => {
 
 app.post('/api/admin/products', authenticateToken, async (req, res) => {
   const db = await getDB();
-  const newProduct = req.body;
+  const newProduct = {
+  available: true,
+  ...req.body,
+};
 
   if (!newProduct.name || !newProduct.price) {
     return res.status(400).json({ error: 'Product name and price are required' });

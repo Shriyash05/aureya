@@ -55,11 +55,21 @@ input, textarea, select { font-family: var(--font-sans); }
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 6rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
 }
 @media (max-width: 1024px) { .container { padding: 0 4rem; } }
 @media (max-width: 640px)  { .container { padding: 0 2.4rem; } }
 
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
 /* ── Buttons ─────────────────────────────────────────── */
 .btn-primary {
   display: inline-block;

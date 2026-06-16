@@ -4,15 +4,19 @@ export default function ProductCard({ product, onSelect }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
-      style={{
-        ...styles.card,
-        ...(hovered ? styles.cardHovered : {}),
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onClick={() => onSelect(product)}
-    >
+  <div
+    style={{
+      ...styles.card,
+      ...(hovered ? styles.cardHovered : {}),
+      opacity: product.available === false ? 0.65 : 1,
+    }}
+    onMouseEnter={() => setHovered(true)}
+    onMouseLeave={() => setHovered(false)}
+    onClick={() => {
+      if (product.available === false) return;
+      onSelect(product);
+    }}
+  >
       {/* Image area */}
       <div style={styles.imageWrap}>
         <img
@@ -23,10 +27,36 @@ export default function ProductCard({ product, onSelect }) {
             transform: hovered ? 'scale(1.07)' : 'scale(1)',
           }}
         />
+        {product.available === false && (
+  <div
+    style={{
+      position: 'absolute',
+      top: '12px',
+      right: '12px',
+      zIndex: 10,
+      background: '#c0392b',
+      color: '#fff',
+      padding: '6px 12px',
+      fontSize: '0.75rem',
+      fontWeight: '700',
+      borderRadius: '20px',
+      textTransform: 'uppercase',
+    }}
+  >
+    Sold Out
+  </div>
+)}
         {/* Overlay on hover */}
-        <div style={{ ...styles.imageOverlay, opacity: hovered ? 1 : 0 }}>
-          <span style={styles.viewLabel}>VIEW DETAILS</span>
-        </div>
+        <div
+  style={{
+    ...styles.imageOverlay,
+    opacity: hovered ? 1 : 0,
+  }}
+>
+  <span style={styles.viewLabel}>
+    {product.available === false ? 'SOLD OUT' : 'VIEW DETAILS'}
+  </span>
+</div>
         {/* Badge */}
         {product.type && (
           <div style={styles.badge}>
@@ -46,7 +76,15 @@ export default function ProductCard({ product, onSelect }) {
           </span>
           <button
             style={{ ...styles.detailBtn, borderColor: hovered ? 'var(--gold)' : 'var(--border)', color: hovered ? 'var(--gold)' : 'var(--muted)' }}
-            onClick={(e) => { e.stopPropagation(); onSelect(product); }}
+            onClick={(e) => {
+  e.stopPropagation();
+
+  if (product.available === false) {
+    return;
+  }
+
+  onSelect(product);
+}}
           >
             Details →
           </button>
