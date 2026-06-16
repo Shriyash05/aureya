@@ -601,11 +601,11 @@ function ShopPage({ products, onSelect }) {
         {filtered.length === 0 ? (
           <div style={collStyles.empty}><p>No products match your filters.</p></div>
         ) : (
-          <div
+         <div
   className="shop-grid"
   style={{
     ...collStyles.grid,
-    gridTemplateColumns: 'repeat(auto-fill, minmax(28rem, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(24rem, 1fr))',
   }}
 >
             {filtered.map(p => <ProductCard key={p.id} product={p} onSelect={onSelect} />)}
@@ -627,7 +627,7 @@ const shopStyles = {
     border: '1px solid var(--border)',
     flexWrap: 'wrap',
   },
-  filterGroup: { display: 'flex', flexDirection: 'column', gap: '0.8rem', minWidth: '20rem' },
+  filterGroup: { display: 'flex', flexDirection: 'column', gap: '0.8rem', minWidth: '0'},
   resetBtn: {
     background: 'none',
     border: '1px solid var(--border)',
