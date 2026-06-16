@@ -77,7 +77,7 @@ const featureStyles = {
   section: {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
-minHeight: '85vh',
+  minHeight: '85vh',
   backgroundColor: '#080808',
 },
   imagePanel: {
@@ -516,11 +516,12 @@ const collStyles = {
     lineHeight: '1.8',
   },
   filterRow: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '4rem',
-    marginBottom: '5rem',
-  },
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '4rem',
+  marginBottom: '5rem',
+  flexWrap: 'wrap',
+},
   filterBtn: {
     background: 'none',
     border: 'none',
