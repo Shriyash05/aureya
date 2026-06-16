@@ -51,7 +51,9 @@ export default function Footer({ onNavigate, onSubscribe, onOpenLogin, isAdmin }
 
           {/* Brand col */}
           <div style={styles.brandCol}>
-            <h2 style={styles.brandName}>AUREYA</h2>
+            <h2 className="footer-brand-name" style={styles.brandName}>
+  AUREYA
+</h2>
             <p style={styles.brandByline}>by Aayush</p>
             <p style={styles.brandTagline}>"Wear Your Essence."</p>
             <p style={styles.brandDesc}>
@@ -182,25 +184,26 @@ const styles = {
     outline: 'none',
   },
   nlBtn: {
-    height: '5rem',
-    padding: '0 3rem',
-    backgroundColor: 'var(--gold)',
-    color: 'var(--black)',
-    fontFamily: "'Montserrat', sans-serif",
-    fontSize: '1.1rem',
-    fontWeight: '700',
-    letterSpacing: '0.18em',
-    textTransform: 'uppercase',
-    border: 'none',
-    cursor: 'pointer',
-    whiteSpace: 'nowrap',
-    transition: 'background 0.3s ease',
-  },
+  height: '5rem',
+  padding: '0 1.5rem',
+  minWidth: '140px',
+  backgroundColor: 'var(--gold)',
+  color: 'var(--black)',
+  fontFamily: "'Montserrat', sans-serif",
+  fontSize: '1.1rem',
+  fontWeight: '700',
+  letterSpacing: '0.18em',
+  textTransform: 'uppercase',
+  border: 'none',
+  cursor: 'pointer',
+  whiteSpace: 'nowrap',
+},
   body: { padding: '6rem 0' },
   grid: {
     display: 'grid',
-    gridTemplateColumns: '2fr 1fr 1fr 1fr',
-    gap: '5rem',
+  gridTemplateColumns: '2fr 1fr 1fr 1fr',
+  gap: '3rem',
+  width: '100%',  
   },
   brandCol: {
   width: '100%',
@@ -268,10 +271,11 @@ const styles = {
     letterSpacing: '0.04em',
   },
   contactItem: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-  },
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: '1rem',
+  flexWrap: 'wrap',
+},
   contactLink: {
     color: 'var(--muted)',
     fontSize: '1.25rem',

@@ -235,6 +235,7 @@ const styles = {
     transition: 'all 0.2s ease',
   },
 burgerBtn: {
+  display: 'none',
   background: 'none',
   border: 'none',
   cursor: 'pointer',
