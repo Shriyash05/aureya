@@ -1,7 +1,24 @@
 import { useState } from 'react';
 import { Award, Compass, RefreshCw, ArrowRight } from 'lucide-react';
 
+
 const QUESTIONS = [
+  {
+  id: 0,
+  question: "Which fragrance format do you prefer?",
+  options: [
+    {
+      text: "Solid Perfume (Portable Balm)",
+      type: "solid",
+      isFormat: true,
+    },
+    {
+      text: "Extrait de Parfum (Spray)",
+      type: "spray",
+      isFormat: true,
+    }
+  ]
+},
   {
     id: 1,
     question: "Where is your ideal sensory escape?",
@@ -38,9 +55,13 @@ export default function ScentQuiz({ products, onSelectProduct }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [result, setResult] = useState(null);
+  const [selectedFormat, setSelectedFormat] = useState(null);
 
-  const handleOptionSelect = (type) => {
-    const updatedAnswers = [...answers, type];
+  const handleOptionSelect = (value, isFormat = false) => {
+  if (isFormat) {
+    setSelectedFormat(value);
+  } else {
+    const updatedAnswers = [...answers, value];
     setAnswers(updatedAnswers);
 
     if (currentStep < QUESTIONS.length - 1) {
@@ -48,7 +69,12 @@ export default function ScentQuiz({ products, onSelectProduct }) {
     } else {
       calculateResult(updatedAnswers);
     }
-  };
+
+    return;
+  }
+
+  setCurrentStep(currentStep + 1);
+};
 
   const calculateResult = (finalAnswers) => {
     // Count occurrences of each category
@@ -69,10 +95,24 @@ export default function ScentQuiz({ products, onSelectProduct }) {
 
     // Match with products
     // Filter products matching the topCategory tag
-    const matches = products.filter(p => p.tag === topCategory);
+    const matches = products.filter(
+  p =>
+    p.available !== false &&
+    p.tag === topCategory &&
+    p.type === selectedFormat
+);
     
     // Pick the first match, or fallback to any product
-    const recommendedProduct = matches[0] || products[0];
+    const recommendedProduct =
+  matches[0] ||
+  products.find(
+    p =>
+      p.available !== false &&
+      p.type === selectedFormat
+  ) ||
+  products.find(
+    p => p.available !== false
+  );
 
     setResult({
       category: topCategory,
@@ -140,7 +180,7 @@ export default function ScentQuiz({ products, onSelectProduct }) {
                   <button 
                     key={index} 
                     style={styles.optionBtn}
-                    onClick={() => handleOptionSelect(opt.type)}
+                    onClick={() => handleOptionSelect(opt.type,opt.isFormat)}
                   >
                     <span>{opt.text}</span>
                     <ArrowRight size={14} style={styles.optionIcon} />
@@ -154,7 +194,13 @@ export default function ScentQuiz({ products, onSelectProduct }) {
                 <Award size={24} color="#0a0b10" />
               </div>
               <p style={styles.resultSubtitle}>Your Olfactory Profile is</p>
-              <h3 style={styles.resultTitle}>{result.category}</h3>
+              <h3 style={styles.resultTitle}>
+  {result.category} • {
+    selectedFormat === 'solid'
+      ? 'Solid Perfume'
+      : 'Extrait de Parfum'
+  }
+</h3>
               <p style={styles.resultDesc}>{result.description}</p>
               
               <div style={styles.recBox}>
@@ -198,9 +244,13 @@ export default function ScentQuiz({ products, onSelectProduct }) {
 
 const styles = {
   section: {
-    backgroundColor: '#0a0b10', // Navy/black
-    backgroundImage: 'radial-gradient(circle at 50% 80%, rgba(252, 209, 22, 0.05) 0%, transparent 50%)',
-  },
+  paddingTop: '10rem',
+  paddingBottom: '6rem',
+  minHeight: '100vh',
+  backgroundColor: '#0a0b10',
+  backgroundImage:
+    'radial-gradient(circle at 50% 80%, rgba(252, 209, 22, 0.05) 0%, transparent 50%)',
+},
   quizHeader: {
     textAlign: 'center',
     marginBottom: '50px',
