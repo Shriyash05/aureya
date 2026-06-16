@@ -182,15 +182,15 @@
     border-right-color: var(--border);
   }
 }
-@media (max-width: 768px) {
-
-  .hide-mobile {
-    display: none !important;
-  }
-
+.hide-mobile {
+  display: flex;
 }
-@media (max-width: 768px) {
 
+.show-mobile {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
   .hide-mobile {
     display: none !important;
   }
@@ -198,5 +198,4 @@
   .show-mobile {
     display: flex !important;
   }
-
 }

@@ -776,7 +776,7 @@ function ContactPage({ onSubmit, submitted, name, setName, email, setEmail, mess
         <div style={contactPageStyles.grid}>
           {/* Info */}
           <div style={contactPageStyles.infoCol}>
-            <h3 style={contactPageStyles.infoHeading}>AK Aureya Concierge</h3>
+            <h3 style={contactPageStyles.infoHeading}>Aureya Concierge</h3>
             <p style={contactPageStyles.infoDesc}>Based in Mumbai — available on call & WhatsApp for orders, custom sizes, and local delivery.</p>
             <div style={contactPageStyles.infoItems}>
               {[

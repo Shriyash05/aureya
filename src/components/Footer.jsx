@@ -60,10 +60,10 @@ export default function Footer({ onNavigate, onSubscribe, onOpenLogin, isAdmin }
               <a href="https://wa.me/919619203048" target="_blank" rel="noopener noreferrer" style={styles.socialLink} title="WhatsApp">
                 <MessageSquare size={17} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={styles.socialLink} title="Instagram">
+              <a href="https://www.instagram.com/aureyabyaayush/" target="_blank" rel="noopener noreferrer" style={styles.socialLink} title="Instagram">
                 <Camera size={17} />
               </a>
-              <a href="mailto:aureya@example.com" style={styles.socialLink} title="Email">
+              <a href="mailto:Aureyabyaayush@gmail.com" style={styles.socialLink} title="Email">
                 <Mail size={17} />
               </a>
             </div>
@@ -114,7 +114,7 @@ export default function Footer({ onNavigate, onSubscribe, onOpenLogin, isAdmin }
       {/* ── Bottom bar ── */}
       <div style={styles.bottomBar}>
         <div className="container" style={styles.bottomInner}>
-          <p style={styles.copyright}>© {year} AK Aureya by Aayush. All rights reserved.</p>
+          <p style={styles.copyright}>© {year} Aureya by Aayush. All rights reserved.</p>
           <p style={styles.bottomTag}>Let your scent be your signature.</p>
         </div>
       </div>
