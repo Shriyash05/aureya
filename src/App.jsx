@@ -462,7 +462,7 @@ function CollectionSection({ products, onSelect, onNavigate }) {
             <p>No products available yet. Check back soon.</p>
           </div>
         ) : (
-          <div className="collection-grid" style={collStyles.grid}>
+          <div className="collection-grid">
             {filtered.slice(0, 6).map(product => (
               <ProductCard key={product.id} product={product} onSelect={onSelect} />
             ))}
@@ -536,10 +536,10 @@ const collStyles = {
     transition: 'all 0.25s ease',
   },
   grid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3,1fr)',
-    gap: '2.4rem',
-  },
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3,1fr)',
+  gap: '2.4rem',
+},
   empty: {
     textAlign: 'center',
     padding: '8rem 0',
@@ -603,10 +603,7 @@ function ShopPage({ products, onSelect }) {
         ) : (
          <div
   className="shop-grid"
-  style={{
-    ...collStyles.grid,
-    gridTemplateColumns: 'repeat(auto-fill, minmax(24rem, 1fr))',
-  }}
+  style={collStyles.grid}
 >
             {filtered.map(p => <ProductCard key={p.id} product={p} onSelect={onSelect} />)}
           </div>
