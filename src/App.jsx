@@ -534,6 +534,8 @@ const collStyles = {
     transition: 'all 0.25s ease',
   },
   grid: {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3,minmax(0,1fr))',
   gap: '2.4rem',
 },
   empty: {
