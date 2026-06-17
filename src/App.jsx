@@ -10,6 +10,7 @@ import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import Footer from './components/Footer';
 import { MessageSquare, Check } from 'lucide-react';
+import { Analytics } from "@vercel/analytics/next"
 
 /* ─── Marquee Band ────────────────────────────────────── */
 function MarqueeBand() {
