@@ -538,6 +538,10 @@ const collStyles = {
   },
   grid: {
   display: 'grid',
+  gridTemplateColumns:
+    window.innerWidth <= 768
+      ? 'repeat(2,minmax(0,1fr))'
+      : 'repeat(3,minmax(0,1fr))',
   gap: '2.4rem',
 },
   empty: {
