@@ -46,7 +46,9 @@
     overflow-x:hidden !important;
   }
 
-  *{
+*,
+*::before,
+*::after{
   box-sizing:border-box;
 }
 
@@ -104,36 +106,43 @@
   }
 
   /* Product grids */
-  .collection-grid,
-  .shop-grid{
-    display:grid !important;
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    gap:12px !important;
-    width:100% !important;
-  }
+.collection-grid,
+.shop-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2,1fr) !important;
+  gap:10px !important;
+  width:100% !important;
+}
 
-  .collection-grid > *,
-  .shop-grid > *{
-    min-width:0 !important;
-    width:100% !important;
-  }
+.collection-grid > *,
+.shop-grid > *{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+}
 
   /* Solid perfume section */
-  .feature-section{
-    display:block !important;
-    min-height:auto !important;
-  }
+  /* Solid perfume section */
+.feature-section{
+  display:flex !important;
+  flex-direction:column !important;
+  min-height:auto !important;
+}
 
-  .feature-section img{
-    width:100% !important;
-    height:auto !important;
-    object-fit:contain !important;
-    padding:1rem !important;
-  }
+.feature-section > div:first-child{
+  order:-1;
+}
 
-  .feature-section > div:last-child{
-    padding:2.5rem 1.5rem !important;
-  }
+.feature-section img{
+  width:100% !important;
+  height:auto !important;
+  object-fit:contain !important;
+  padding:0 !important;
+}
+
+.feature-section > div:last-child{
+  padding:2rem 1.5rem !important;
+}
 
   /* Testimonials */
   .testimonial-grid{

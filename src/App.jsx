@@ -599,7 +599,10 @@ function ShopPage({ products, onSelect }) {
         {filtered.length === 0 ? (
           <div style={collStyles.empty}><p>No products match your filters.</p></div>
         ) : (
-         <div className="shop-grid" style={collStyles.grid}>
+         <div
+  className="shop-grid"
+  style={collStyles.grid}
+>
             {filtered.map(p => <ProductCard key={p.id} product={p} onSelect={onSelect} />)}
           </div>
         )}
