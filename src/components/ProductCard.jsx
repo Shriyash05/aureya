@@ -38,7 +38,7 @@ const discountPercent = hasDiscount
       right:'-35px',
       width:'120px',
       textAlign:'center',
-      background:'#c5a880',
+      background:'#ff0000',
       color:'#000',
       fontWeight:'700',
       fontSize:'0.7rem',
