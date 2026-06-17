@@ -8,6 +8,13 @@
   grid-template-columns:1fr 1fr;
   min-height:85vh;
 }
+.feature-section > div:first-child{
+  order:2;
+}
+
+.feature-section > div:last-child{
+  order:1;
+}
 
 .testimonial-grid{
   display:grid;
