@@ -1058,6 +1058,24 @@ export default function App() {
       }
     } catch (err) { console.error(err); }
   };
+  const sortedProducts = [...products].sort((a,b)=>{
+  if(
+    a.available !== false &&
+    b.available === false
+  ){
+    return -1;
+  }
+
+  if(
+    a.available === false &&
+    b.available !== false
+  ){
+    return 1;
+  }
+
+  return 0;
+});
+
 
   if (!isLoaded) return <Loader onComplete={() => setIsLoaded(true)} />;
 
@@ -1124,22 +1142,5 @@ export default function App() {
       <AdminLogin isOpen={loginOpen} onClose={() => setLoginOpen(false)} onLoginSuccess={handleLoginSuccess} />
     </div>
   );
-  const sortedProducts = [...products].sort((a,b)=>{
 
-  if(
-    a.available !== false &&
-    b.available === false
-  ){
-    return -1;
   }
-
-  if(
-    a.available === false &&
-    b.available !== false
-  ){
-    return 1;
-  }
-
-  return 0;
-});
-}
