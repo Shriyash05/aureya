@@ -27,6 +27,7 @@ export default function AdminDashboard({
   const [formImage, setFormImage] = useState('/images/cosmic.jpeg');
   const [uploadStatus, setUploadStatus] = useState('');
   const [isUploading, setIsUploading] = useState(false);
+  const [formDiscountPrice, setFormDiscountPrice] = useState('');
 
   // Initializing Form for Edit or Create
   const handleStartAdd = () => {
@@ -44,6 +45,7 @@ export default function AdminDashboard({
     setFormImage('/images/cosmic.jpeg'); // Default mock
     setUploadStatus('');
     setFormAvailable(true);
+    setFormDiscountPrice(''); 
   };
 
   const handleStartEdit = (product) => {
@@ -61,6 +63,11 @@ export default function AdminDashboard({
     setFormImage(product.image);
     setUploadStatus('');
     setFormAvailable(product.available !== false);
+    setFormDiscountPrice(
+  product.discountPrice
+    ? product.discountPrice.toString()
+    : ''
+);
   };
 
   const handleImageUpload = async (event) => {
@@ -93,6 +100,11 @@ export default function AdminDashboard({
       name: formName,
       type: formType,
       price: parseFloat(formPrice) || 0,
+
+discountPrice:
+  formDiscountPrice === ''
+    ? null
+    : parseFloat(formDiscountPrice),
       volume: formVolume,
       description: formDescription,
       tag: formTag,
@@ -231,6 +243,16 @@ export default function AdminDashboard({
                         required 
                       />
                     </div>
+                    <div style={styles.inputGroup}>
+  <label>Discount Price (Optional)</label>
+
+  <input
+    type="number"
+    value={formDiscountPrice}
+    onChange={(e)=>setFormDiscountPrice(e.target.value)}
+    placeholder="Leave empty if no discount"
+  />
+</div>
 
                     <div style={{...styles.inputGroup, flex: 1}}>
                       <label>Scent Tag</label>

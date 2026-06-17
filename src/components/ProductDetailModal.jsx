@@ -70,7 +70,47 @@ const whatsappMessage = encodeURIComponent(
 
             <h2 style={styles.title}>{name}</h2>
             <div style={styles.priceRow}>
-              <span style={styles.price}>₹{formattedPrice}</span>
+              {product.discountPrice ? (
+  <div>
+    <div
+      style={{
+        textDecoration:'line-through',
+        color:'#888',
+        fontSize:'1.2rem'
+      }}
+    >
+      ₹{formattedPrice}
+    </div>
+
+    <div
+      style={{
+        color:'#c5a880',
+        fontSize:'2rem',
+        fontWeight:'700'
+      }}
+    >
+      ₹{Number(
+        product.discountPrice
+      ).toLocaleString('en-IN')}
+    </div>
+
+    <div
+      style={{
+        color:'#2ecc71'
+      }}
+    >
+      {Math.round(
+        ((product.price - product.discountPrice)
+          / product.price) * 100
+      )}
+      % OFF
+    </div>
+  </div>
+) : (
+  <span style={styles.price}>
+    ₹{formattedPrice}
+  </span>
+)}
               <span style={styles.volume}>{volume}</span>
             </div>
 

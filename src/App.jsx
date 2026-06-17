@@ -1072,7 +1072,7 @@ export default function App() {
           <>
             <Hero onNavigate={setActiveTab} />
             <MarqueeBand />
-            <CollectionSection products={products} onSelect={setActiveProduct} onNavigate={setActiveTab} />
+            <CollectionSection products={sortedProducts} onSelect={setActiveProduct} onNavigate={setActiveTab} />
             <FeatureSection onNavigate={setActiveTab} />
             <AboutSection />
             <TestimonialsSection />
@@ -1082,12 +1082,12 @@ export default function App() {
 
         {/* ── SHOP ─────────────────────────────────────── */}
         {activeTab === 'shop' && (
-          <ShopPage products={products} onSelect={setActiveProduct} />
+          <ShopPage products={sortedProducts} onSelect={setActiveProduct} />
         )}
 
         {/* ── QUIZ ─────────────────────────────────────── */}
         {activeTab === 'quiz' && (
-          <ScentQuiz products={products} onSelectProduct={setActiveProduct} />
+          <ScentQuiz products={sortedProducts} onSelectProduct={setActiveProduct} />
         )}
 
         {/* ── ABOUT ────────────────────────────────────── */}
@@ -1107,7 +1107,7 @@ export default function App() {
         {/* ── ADMIN ────────────────────────────────────── */}
         {activeTab === 'admin' && isAdmin && (
           <AdminDashboard
-            products={products}
+            products={sortedProducts}
             onAddProduct={handleAddProduct}
             onUpdateProduct={handleUpdateProduct}
             onDeleteProduct={handleDeleteProduct}
@@ -1124,4 +1124,22 @@ export default function App() {
       <AdminLogin isOpen={loginOpen} onClose={() => setLoginOpen(false)} onLoginSuccess={handleLoginSuccess} />
     </div>
   );
+  const sortedProducts = [...products].sort((a,b)=>{
+
+  if(
+    a.available !== false &&
+    b.available === false
+  ){
+    return -1;
+  }
+
+  if(
+    a.available === false &&
+    b.available !== false
+  ){
+    return 1;
+  }
+
+  return 0;
+});
 }

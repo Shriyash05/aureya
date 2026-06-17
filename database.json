@@ -5,6 +5,7 @@
       "name": "Cosmic",
       "type": "spray",
       "price": 7999,
+      "discountPrice": 5999,
       "volume": "100ml",
       "description": "A celestial journey of crisp orchard fruits and soft musky undertones. Cosmic captures the vastness of the universe in a drop of liquid starlight.",
       "image": "/images/cosmic.jpeg",

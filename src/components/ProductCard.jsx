@@ -71,9 +71,45 @@ export default function ProductCard({ product, onSelect }) {
         <h3 style={styles.name}>{product.name}</h3>
         <p style={styles.desc}>{product.shortDesc || product.description?.slice(0, 70) + '...'}</p>
         <div style={styles.bottom}>
-          <span style={styles.price}>
-            {product.price ? `₹${product.price}` : 'Enquire'}
-          </span>
+          {product.discountPrice ? (
+  <div>
+    <div
+      style={{
+        textDecoration:'line-through',
+        color:'#888',
+        fontSize:'0.9rem'
+      }}
+    >
+      ₹{product.price}
+    </div>
+
+    <div
+      style={{
+        color:'#c5a880',
+        fontWeight:'700'
+      }}
+    >
+      ₹{product.discountPrice}
+    </div>
+
+    <div
+      style={{
+        color:'#2ecc71',
+        fontSize:'0.8rem'
+      }}
+    >
+      {Math.round(
+        ((product.price - product.discountPrice)
+          / product.price) * 100
+      )}
+      % OFF
+    </div>
+  </div>
+) : (
+  <span style={styles.price}>
+    ₹{product.price}
+  </span>
+)}
           <button
             style={{ ...styles.detailBtn, borderColor: hovered ? 'var(--gold)' : 'var(--border)', color: hovered ? 'var(--gold)' : 'var(--muted)' }}
             onClick={(e) => {
