@@ -387,6 +387,7 @@ discountPrice:
                     <th style={styles.th}>Type</th>
                     <th style={styles.th}>Volume</th>
                     <th style={styles.th}>Price</th>
+<th style={styles.th}>Discount</th>
                     <th style={styles.th}>Tag</th>
                     <th style={styles.th}>Status</th>
                     <th style={styles.th}>Actions</th>
@@ -417,6 +418,18 @@ discountPrice:
                       <td style={styles.td}>{p.volume}</td>
                       <td style={{ ...styles.td, color: '#fcd116' }}>
   ₹{Number(p.price || 0).toLocaleString('en-IN')}
+</td>
+
+<td style={styles.td}>
+  {p.discountPrice ? (
+    <span style={{ color: '#7bd88f', fontWeight: '600' }}>
+      ₹{Number(p.discountPrice).toLocaleString('en-IN')}
+    </span>
+  ) : (
+    <span style={{ color: '#666' }}>
+      —
+    </span>
+  )}
 </td>
                       <td style={styles.td}>
                         <span style={styles.tdTag}>{p.tag}</span>

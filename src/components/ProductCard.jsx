@@ -2,6 +2,16 @@ import { useState } from 'react';
 
 export default function ProductCard({ product, onSelect }) {
   const [hovered, setHovered] = useState(false);
+  const hasDiscount =
+  product.discountPrice &&
+  Number(product.discountPrice) < Number(product.price);
+
+const discountPercent = hasDiscount
+  ? Math.round(
+      ((product.price - product.discountPrice) /
+        product.price) * 100
+    )
+  : 0;
 
   return (
   <div
@@ -19,6 +29,25 @@ export default function ProductCard({ product, onSelect }) {
   >
       {/* Image area */}
       <div style={styles.imageWrap}>
+        {hasDiscount && (
+    <div
+      style={{
+        position: 'absolute',
+        top: '12px',
+        left: '12px',
+        zIndex: 10,
+        background: '#c5a87c',
+        color: '#000',
+        padding: '6px 12px',
+        fontSize: '0.75rem',
+        fontWeight: '700',
+        borderRadius: '20px',
+        textTransform: 'uppercase',
+      }}
+    >
+      {discountPercent}% OFF
+    </div>
+  )}
         <img
           src={product.image || '/images/cosmic.jpeg'}
           alt={product.name}
