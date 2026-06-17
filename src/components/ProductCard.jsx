@@ -29,25 +29,30 @@ const discountPercent = hasDiscount
   >
       {/* Image area */}
       <div style={styles.imageWrap}>
-        {hasDiscount && (
-    <div
-      style={{
-        position: 'absolute',
-        top: '12px',
-        left: '12px',
-        zIndex: 10,
-        background: '#c5a87c',
-        color: '#000',
-        padding: '6px 12px',
-        fontSize: '0.75rem',
-        fontWeight: '700',
-        borderRadius: '20px',
-        textTransform: 'uppercase',
-      }}
-    >
-      {discountPercent}% OFF
-    </div>
-  )}
+        {product.discountPrice &&
+ product.available !== false && (
+  <div
+    style={{
+      position:'absolute',
+      top:'15px',
+      right:'-35px',
+      width:'120px',
+      textAlign:'center',
+      background:'#c5a880',
+      color:'#000',
+      fontWeight:'700',
+      fontSize:'0.7rem',
+      padding:'6px 0',
+      transform:'rotate(45deg)',
+      zIndex:20,
+    }}
+  >
+    {Math.round(
+      ((product.price-product.discountPrice)/
+        product.price)*100
+    )}% OFF
+  </div>
+)}
         <img
           src={product.image || '/images/cosmic.jpeg'}
           alt={product.name}
