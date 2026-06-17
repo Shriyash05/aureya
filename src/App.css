@@ -116,16 +116,17 @@
 .collection-grid,
 .shop-grid{
   display:grid !important;
-  grid-template-columns:repeat(2,1fr) !important;
-  gap:10px !important;
-  width:100% !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:12px !important;
 }
 
 .collection-grid > *,
 .shop-grid > *{
-  width:100% !important;
-  min-width:0 !important;
-  max-width:none !important;
+  width:auto !important;
+  max-width:100% !important;
+}
+.collection-grid{
+  border:3px solid red;
 }
 
   /* Solid perfume section */
