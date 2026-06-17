@@ -1,3 +1,4 @@
+import './App.css';
 import { useCallback, useEffect, useState } from 'react';
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
