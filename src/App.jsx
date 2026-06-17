@@ -75,9 +75,6 @@ function FeatureSection({ onNavigate }) {
 
 const featureStyles = {
   section: {
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  minHeight: '85vh',
   backgroundColor: '#080808',
 },
   imagePanel: {
@@ -537,11 +534,6 @@ const collStyles = {
     transition: 'all 0.25s ease',
   },
   grid: {
-  display: 'grid',
-  gridTemplateColumns:
-    window.innerWidth <= 768
-      ? 'repeat(2,minmax(0,1fr))'
-      : 'repeat(3,minmax(0,1fr))',
   gap: '2.4rem',
 },
   empty: {

@@ -1,7 +1,29 @@
 /* ==========================================
    MOBILE FIXES
 ========================================== */
+/* Desktop */
 
+.feature-section{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:85vh;
+}
+
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3rem;
+}
+
+.about-split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
 @media (max-width:768px){
 
   /* Prevent horizontal scroll */
